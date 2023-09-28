@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="../assets/logo.jpg" width="30" height="24" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#" (click)="mostrarComponente('materia')">Crear Materia</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="mostrarComponente('alumno')">Inscribir Alumno</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="mostrarComponente('inscripcion')">Listar Inscripciones</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="row display-flex justify-content-center">
+    <div class="col-md-8 bg-primary-subtle mt-5 p-5 rounded-4" *ngIf="mostrarAlumno">
+      <co-alumno></co-alumno>
+    </div>
+    <div class="col-md-8 bg-success-subtle mt-5 p-5 rounded-4" *ngIf="mostrarInscripcion">
+      <co-inscripciones></co-inscripciones>
+    </div>
+    <div class="col-md-8 bg-warning-subtle mt-5 p-5 rounded-4" *ngIf="mostrarMateria">
+      <co-materia></co-materia>
+    </div>
+  </div>
+</div>

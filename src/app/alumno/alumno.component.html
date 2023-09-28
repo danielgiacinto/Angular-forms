@@ -1,0 +1,22 @@
+<form class="row g-3 needs-validation" #form="ngForm" (ngSubmit)="inscribirAlumno()" novalidate>
+  <h4>Alumno</h4>  
+    <div class="col-md-6">
+      <label for="validationCustom01" class="form-label">Nombre Alumno</label>
+      <input type="text" class="form-control" name="alumno" [(ngModel)]="alumno" required maxlength="200">
+      <div *ngIf="form.controls['alumno'].hasError('required') || (form.submitted && form.controls['alumno'].invalid)">
+        <p style="color: brown;">El nombre es requerido.</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="validationCustom02" class="form-label">Materia</label>
+      <select name="materia" id="" class="form-select" [(ngModel)]="materiaSeleccionada" required>
+        <option *ngFor="let materia of materias" [value]="materia"> {{materia}}</option>
+      </select>
+      <div *ngIf="form.controls['materia'].hasError('required') || (form.submitted && form.controls['materia'].invalid)">
+        <p style="color: brown;">La materia es requerida.</p>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <button class="btn btn-primary" type="submit">Inscribir Alumno</button>
+    </div>
+</form>

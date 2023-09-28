@@ -1,0 +1,7 @@
+<h2 class="text-center">Lista de Inscripciones</h2>
+
+<ul class="list-group">
+  <li class="list-group-item text-center" *ngFor="let alumno of alumnos; let i = index">
+    <span>{{ i + 1 }} - </span><span class="fw-bold">Alumno:</span> {{ alumno.alumno }} &nbsp;&nbsp;&nbsp; <span class="fw-bold">Materia:</span> {{ alumno.materiaSeleccionada }}
+  </li>
+</ul>

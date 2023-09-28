@@ -1,0 +1,23 @@
+<form class="row g-3 needs-validation" #form="ngForm" (ngSubmit)="materiaNueva()">
+  <h4>Materia</h4>  
+  <div class="col-md-6">
+      <label for="validationCustom01" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="validationCustom01" name="nombre" [(ngModel)]="nombre" required maxlength="50">
+      <div *ngIf="form.controls['nombre'].hasError('required') || (form.submitted && form.controls['nombre'].invalid)">
+        <p style="color:brown;">El nombre es requerido.</p>
+      </div>
+      <div *ngIf="form.controls['nombre'].hasError('maxlength') && (form.submitted && form.controls['nombre'].invalid)">
+        El nombre no puede tener más de 50 caracteres.
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="validationCustom02" class="form-label">Cupo</label>
+      <input type="number" class="form-control" id="validationCustom02" name="cupos" [(ngModel)]="cupos" required>
+      <div *ngIf="cupos <= 0 || (form.submitted && form.controls['cupos'].invalid)">
+        <p style="color:brown;">El cupo debe ser mayor a cero.</p>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <button class="btn btn-warning" type="submit">Registrar Materia</button>
+    </div>
+</form>
